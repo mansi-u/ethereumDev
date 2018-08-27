@@ -24,24 +24,6 @@ function insertUsers(data, callback) {
 }
 
 
-function insertFoodItem(data, callback) {
-    //console.log(data);
-    MongoClient.connect(URL, {
-        useNewUrlParser: true
-    }, function (err, client) {
-        if (err) return console.log(err);
-        //  console.log(URL);
-       var db = client.db(dbName);
-        db.collection('food').insert(data, function (err, insertedData) {
-            callback({
-                err: err,
-                data: insertedData
-            });
-            client.close();
-        });
-    });
-}
-
 function addCryptoCurrency(data, callback){
     MongoClient.connect(URL, {
         useNewUrlParser: true
